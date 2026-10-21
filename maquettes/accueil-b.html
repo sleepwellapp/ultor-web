@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=1480"><title>Ultor · maquette · accueil B</title><link rel="stylesheet" href="maquettes.css"></head>
+<body><div class="legend" style="margin-top:18px">Ultor, version pleine page · maquettes 1440 × 900 · <a href="accueil-a.html">Accueil A · le tableau de bord</a> · <b>Accueil B · la base en bandeau</b> · <a href="accueil-c.html">Accueil C · la planète héroïne</a> · <a href="recherche.html">La Recherche</a> · <a href="carte.html">La carte du système</a> · <a href="index.html">toutes</a> · <a href="../">le jeu tel quel</a></div>
+<div class="screen">
+<nav class="side">
+<div class="brand"><b>ULTOR</b><small>ASH OF<br>EMPIRE</small></div>
+<div class="nav">
+<h6>BASE</h6>
+<a class="on" href="accueil-a.html"><span class="i " style="--m:url(img/icones/world.svg)"></span><span class="lbl">Cinis II</span></a>
+<a><span class="i " style="--m:url(img/icones/factory.svg)"></span><span class="lbl">Structures</span><span class="badge dot"></span></a>
+<a href="recherche.html"><span class="i " style="--m:url(img/icones/erlenmeyer.svg)"></span><span class="lbl">Recherche</span><span class="badge dot"></span></a>
+<a><span class="i " style="--m:url(img/icones/crenulated-shield.svg)"></span><span class="lbl">Défense</span><span class="badge dot"></span></a>
+<a><span class="i " style="--m:url(img/icones/crane.svg)"></span><span class="lbl">Chantier spatial</span></a>
+<a><span class="i " style="--m:url(img/icones/anchor.svg)"></span><span class="lbl">Flotte</span></a>
+<a><span class="i " style="--m:url(img/icones/boot-prints.svg)"></span><span class="lbl">Missions</span><span class="badge num">1</span></a>
+<h6>SYSTÈME</h6>
+<a href="carte.html"><span class="i " style="--m:url(img/icones/solar-system.svg)"></span><span class="lbl">Carte du système</span></a>
+<a><span class="i " style="--m:url(img/icones/planet-conquest.svg)"></span><span class="lbl">Empire</span></a>
+<a><span class="i " style="--m:url(img/icones/long-antennae-bug.svg)"></span><span class="lbl">Menaces</span><span class="badge num red">1</span></a>
+<h6>ULTOR</h6>
+<a><span class="i " style="--m:url(img/icones/eagle-emblem.svg)"></span><span class="lbl">Renom et talents</span></a>
+<a><span class="i " style="--m:url(img/icones/open-book.svg)"></span><span class="lbl">Journal</span></a>
+<a><span class="i " style="--m:url(img/icones/gears.svg)"></span><span class="lbl">Réglages</span></a>
+</div>
+<div class="foot"><div class="rule" style="margin-bottom:12px"></div><div class="cap" style="margin-bottom:8px">Acte II · chapitre 5 sur 7</div><div style="font-size:13.5px;color:var(--ink)">Ses lieutenants</div><div class="sub" style="font-size:12.5px">Maintenant : pose une colonie sur Cinis III</div></div>
+</nav>
+<header class="top">
+<div class="res metal"><span class="i lg" style="--m:url(img/icones/metal-bar.svg)"></span><div><div class="k">MÉTAL</div><div class="v" style="margin-top:5px">150k</div></div></div>
+<div class="res crystal"><span class="i lg" style="--m:url(img/icones/crystal-growth.svg)"></span><div><div class="k">CRISTAL</div><div class="v" style="margin-top:5px">60k</div></div></div>
+<div class="res energy"><span class="i lg" style="--m:url(img/icones/power-lightning.svg)"></span><div><div class="k">ÉNERGIE</div><div class="v" style="margin-top:5px">100 %</div></div></div>
+<div class="res ichor"><span class="i lg" style="--m:url(img/icones/drop.svg)"></span><div><div class="k">ICHOR</div><div class="v" style="margin-top:5px">0</div></div></div>
+<div class="res alert"><span class="i lg" style="--m:url(img/icones/crossed-swords.svg)"></span><div><div class="k" style="color:var(--red)">ATTAQUE EN APPROCHE</div><div style="margin-top:5px;font-size:14px;color:var(--platinum)">La bande vise Cinis II · <span class="mono" style="color:var(--red)">imminent</span></div></div></div>
+<div class="world"><img src="img/globes/cinis-ii.png" width="38" height="38" alt=""><div><div class="cap" style="font-size:9.5px">MONDE</div><b>Cinis II</b></div></div>
+</header>
+<main class="main">
+<style>
+  .band { position: absolute; left: 0; right: 0; top: 0; height: 380px; background: #05070f url(img/base.jpg) 50% 100% / 100% auto no-repeat; }
+  .band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,7,15,.96) 0, rgba(5,7,15,.6) 22%, rgba(5,7,15,0) 40%, rgba(5,7,15,0) 70%, rgba(5,7,15,1) 100%); }
+  .band .head { position: absolute; left: 28px; top: 22px; z-index: 2; }
+  .band .globe { position: absolute; right: 26px; top: 22px; z-index: 2; display: flex; align-items: center; gap: 12px; padding: 8px 34px 8px 10px; font-size: 13px; color: var(--dialogue); }
+  .cols { position: absolute; left: 26px; right: 26px; top: 356px; display: grid; grid-template-columns: 1.05fr 1fr; gap: 16px; }
+  .shipv { display: grid; grid-template-columns: 138px 1fr auto; gap: 0 14px; align-items: center; padding: 6px 0; border-top: 1px solid var(--rule); }
+  .shipv:first-of-type { border-top: 0; }
+  .shipv .pic { height: 62px; background: center / contain no-repeat; }
+  .shipv b { font-weight: 600; color: var(--platinum); font-size: 14px; display: block; }
+  .shipv .s { font-size: 12.5px; color: var(--steel); }
+  .shipv .n { font: 500 22px/1 "Plex"; color: var(--platinum); }
+</style>
+<div class="band">
+  <div class="head"><div class="crumb">BASE · MONDE NATAL</div><h1 style="margin-top:6px;text-shadow:0 2px 14px rgba(5,7,15,.9)">Cinis II</h1>
+    <div class="sub" style="margin-top:6px;color:var(--dialogue)">76 / 132 emplacements · un clic sur un repère ouvre son bâtiment</div></div>
+  <div class="globe fr etiquette"><img src="img/globes/cinis-ii.png" width="40" alt="">voir la planète entière</div>
+</div>
+<div class="cols">
+  <div class="panel fr carte">
+    <h3>En cours <span class="more">Structures</span></h3>
+    <div class="bld"><span class="i " style="--m:url(img/icones/mining.svg)"></span><b>Mine de métal</b><span class="r time" style="color:var(--amber)">47 min</span><span class="lv">niveau 13 → 14</span><div class="progress"><i style="width:6%"></i></div></div>
+    <div class="bld"><span class="i " style="--m:url(img/icones/erlenmeyer.svg)"></span><b>Laboratoire</b><span class="r time" style="color:var(--crystal)">libre</span><span class="lv">Métallurgie de crise prête à partir · 1 h 52</span></div>
+    <h3 style="margin-top:16px">À bâtir maintenant</h3>
+    <div class="bld"><span class="i " style="--m:url(img/icones/bucket-wheel-excavator.svg)"></span><b>Extracteur de cristal</b><span class="r"><span class="amt metal" style="margin:0"><span class="i sm" style="--m:url(img/icones/metal-bar.svg)"></span>8,4k</span></span><span class="lv">niveau 11 → 12 · 41 min</span></div>
+    <div class="bld"><span class="i " style="--m:url(img/icones/barracks.svg)"></span><b>Caserne</b><span class="r"><span class="amt metal" style="margin:0"><span class="i sm" style="--m:url(img/icones/metal-bar.svg)"></span>5,4k</span></span><span class="lv">niveau 3 → 4 · 27 min</span></div>
+    <div class="bld"><span class="i " style="--m:url(img/icones/fuel-tank.svg)"></span><b>Silo à cristal</b><span class="r"><span class="amt metal" style="margin:0"><span class="i sm" style="--m:url(img/icones/metal-bar.svg)"></span>15k</span></span><span class="lv">niveau 5 → 6 · 1 h 12</span></div>
+  </div>
+  <div class="panel fr carte">
+    <h3>Flotte · 9 à quai <span class="more">Flotte</span></h3>
+    <div class="shipv"><div class="pic" style="background-image:url(img/vaisseaux/corvette.png)"></div><div><b>Corvette</b><span class="s">à quai</span></div><span class="n">7</span></div>
+    <div class="shipv"><div class="pic" style="background-image:url(img/vaisseaux/colonisation.png)"></div><div><b>Vaisseau de colonisation</b><span class="s">à quai</span></div><span class="n">1</span></div>
+    <div class="shipv"><div class="pic" style="background-image:url(img/vaisseaux/recycleur.png)"></div><div><b>Recycleur</b><span class="s">1 au hangar · 2 au champ</span></div><span class="n">3</span></div>
+    <div class="shipv"><div class="pic" style="background-image:url(img/vaisseaux/transporteur.png)"></div><div><b>Transporteur</b><span class="s">en vol</span></div><span class="n">1</span></div>
+  </div>
+</div>
+</main>
+<aside class="aside">
+<div class="cap">Ce qui se passe</div>
+<div class="ianos fr console">
+  <div class="tab">IANOS</div>
+  <div class="face" style="background-image:url(img/ianos.png)"></div>
+  <div><p>J'ai fini de lire les registres de la première base qu'on a prise au Cafard.</p></div>
+</div>
+<div class="panel fr tuile" style="padding:14px 50px 12px 16px">
+  <div class="feed"><span style="color:var(--red);font:600 10px/1 'Source Sans 3';letter-spacing:.14em">ATTAQUE</span><span>la bande vise Cinis II</span><span class="mono" style="color:var(--red);font-size:13px">imminent</span></div>
+  <div class="feed"><span style="color:var(--crystal);font:600 10px/1 'Source Sans 3';letter-spacing:.14em">RETOUR</span><span>ta sortie</span><span class="time">40 min</span></div>
+  <div class="feed"><span style="color:var(--steel);font:600 10px/1 'Source Sans 3';letter-spacing:.14em">VOL</span><span>vers la station</span><span class="time">0 s</span></div>
+  <div class="feed"><span style="color:var(--steel);font:600 10px/1 'Source Sans 3';letter-spacing:.14em">CHAMP</span><span>2 recycleurs au travail</span><span class="mono" style="font-size:13px;color:var(--ink)">+13k / h</span></div>
+</div>
+<div><div class="cap" style="margin-bottom:8px">Objectif · chapitre 5 sur 7</div><div style="color:var(--platinum);font-size:15px">Pose une colonie sur Cinis III</div></div>
+<div class="rule"></div>
+<div class="cap">Mondes</div>
+<div style="display:flex;gap:14px;align-items:center">
+  <img src="img/globes/cinis-ii.png" width="44" alt=""><img src="img/globes/cinis-iv.png" width="44" alt=""><img src="img/globes/ceinture.png" width="44" alt=""><img src="img/globes/lune.png" width="44" alt=""><img src="img/globes/cinis-iii.png" width="44" alt="" style="opacity:.5">
+</div>
+<div style="margin-top:auto"><span class="btn" style="width:100%">Lancer · Métallurgie de crise</span></div>
+</aside>
+</div>
+<div class="legend">
+<b>Accueil B, la base en bandeau.</b> La planète ne se montre plus que par sa base : le bandeau du haut est le vrai rendu de
+l'orbite basse (les repères du jeu, un clic ouvre le bâtiment), et la planète entière est à un clic (le globe en haut à droite).
+Dessous, deux colonnes égales : les chantiers (ce qui tourne, ce qu'on peut bâtir maintenant) et la flotte en liste (nos
+vaisseaux rendus, leur nombre, où ils sont). À droite, un seul fil « ce qui se passe » : IANOS, l'attaque, les vols, le champ,
+l'objectif, et le seul bouton ambre de l'écran.
+</div>
+</body></html>

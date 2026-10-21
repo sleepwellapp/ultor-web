@@ -5,9 +5,11 @@
 <link rel="stylesheet" href="maquettes.css">
 <style>
   body { background: var(--night); }
-  .wrap { max-width: 1180px; margin: 0 auto; padding: 48px 20px 64px; }
+  .wrap { max-width: 1500px; margin: 0 auto; padding: 48px 20px 64px; }
   h1 { font-size: 40px; } .lead { color: var(--dialogue); font-size: 16px; line-height: 1.6; max-width: 760px; margin: 14px 0 34px; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 22px; }
+  .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; } .grid.deux { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 990px; margin-top: 30px; }
+  @media (max-width: 900px) { .grid, .grid.deux { grid-template-columns: 1fr; } }
+  h2.sec { font: 22px/1.2 "Marcellus"; font-weight: 400; color: var(--platinum); margin: 36px 0 14px; }
   .grid a { display: block; text-decoration: none; color: var(--ink); }
   .grid img { width: 100%; display: block; border: 1px solid var(--rule-strong); }
   .grid b { display: block; margin-top: 12px; font: 20px/1.2 "Marcellus"; font-weight: 400; color: var(--platinum); }
@@ -19,14 +21,23 @@
 <body><div class="wrap">
 <div class="crumb">ULTOR · ASH OF EMPIRE · APERÇU NON ANNONCÉ</div>
 <h1 style="margin-top:10px">La version pleine page</h1>
-<p class="lead">Trois maquettes de ce que serait Ultor sur un écran d'ordinateur, à la manière d'OGame : le menu à gauche, les
+<p class="lead">Des maquettes de ce que serait Ultor sur un écran d'ordinateur, à la manière d'OGame : le menu à gauche, les
 ressources en haut, le contenu dense au centre, le détail à droite. Tout y vient du jeu : les cadres et les icônes de ses packs,
 ses fontes, ses couleurs, et la 3D rendue par sa sonde sur une partie du milieu de l'Acte II.</p>
+<h2 class="sec">L'accueil, trois variantes</h2>
 <div class="grid">
-  <a href="accueil.html"><img src="img/apercus/accueil.jpg" alt="L'accueil"><b>Cinis II, l'accueil</b><span>la planète au centre, les trois files, les mouvements, les mondes</span></a>
+  <a href="accueil-a.html"><img src="img/apercus/accueil-a.jpg" alt="Accueil A"><b>A · le tableau de bord</b><span>la planète en panneau ; la base, la flotte et ce qui se passe se partagent l'écran</span></a>
+  <a href="accueil-b.html"><img src="img/apercus/accueil-b.jpg" alt="Accueil B"><b>B · la base en bandeau</b><span>la base en orbite basse en tête, chantiers et flotte en deux colonnes, un fil d'activité</span></a>
+  <a href="accueil-c.html"><img src="img/apercus/accueil-c.jpg" alt="Accueil C"><b>C · la planète héroïne</b><span>un grand croissant de Cinis II rendu par le jeu, l'interface en panneaux translucides</span></a>
+</div>
+<h2 class="sec">Les autres écrans</h2>
+<div class="grid deux">
   <a href="recherche.html"><img src="img/apercus/recherche.jpg" alt="La Recherche"><b>La Recherche</b><span>la grille dense et le détail à côté</span></a>
   <a href="carte.html"><img src="img/apercus/carte.jpg" alt="La carte du système"><b>La carte du système</b><span>la carte à la taille de l'écran, la fiche à droite</span></a>
 </div>
+<p class="note">Le menu de gauche ne porte plus qu'un badge par entrée : un point quand une action est possible, un nombre quand
+quelque chose attend, rien sinon ; le détail vit dans la page. La variante C est rendue à 2 880 × 1 800 par la sonde : la
+planète du jeu tient ce cadre au limbe, mais sa surface y est agrandie (0,67 texel par pixel) et s'y voit douce de près.</p>
 <p class="note">Le jeu lui-même, tel qu'il tourne aujourd'hui dans un navigateur (portrait, centré) : <a href="../">l'aperçu web</a> ;
 une partie avancée : <a href="../?partie=o5-empire">au milieu de l'Acte II</a>. Ces pages ne sont pas indexées.</p>
 </div></body></html>
