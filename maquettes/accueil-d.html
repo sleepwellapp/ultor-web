@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=1480"><title>Ultor · maquette · accueil D</title><link rel="stylesheet" href="maquettes.css"></head>
+<body><div class="legend" style="margin-top:18px">Ultor, version pleine page · maquettes 1440 × 900 · <b>Accueil D · B et C mêlés</b> · <a href="structures.html">Structures</a> · <a href="recherche-d.html">Recherche illustrée</a> · <a href="chantier.html">Chantier spatial</a> · <a href="accueil-a.html">Accueil A · le tableau de bord</a> · <a href="accueil-b.html">Accueil B · la base en bandeau</a> · <a href="accueil-c.html">Accueil C · la planète héroïne</a> · <a href="recherche.html">La Recherche</a> · <a href="carte.html">La carte du système</a> · <a href="index.html">toutes</a> · <a href="../">le jeu tel quel</a></div>
+<div class="screen hero d">
+<nav class="side">
+<div class="brand"><b>ULTOR</b><small>ASH OF<br>EMPIRE</small></div>
+<div class="nav">
+<h6>BASE</h6>
+<a class="on" href="accueil-d.html"><span class="i " style="--m:url(img/icones/world.svg)"></span><span class="lbl">Cinis II</span></a>
+<a href="structures.html"><span class="i " style="--m:url(img/icones/factory.svg)"></span><span class="lbl">Structures</span><span class="badge dot"></span></a>
+<a href="recherche-d.html"><span class="i " style="--m:url(img/icones/erlenmeyer.svg)"></span><span class="lbl">Recherche</span><span class="badge dot"></span></a>
+<a><span class="i " style="--m:url(img/icones/crenulated-shield.svg)"></span><span class="lbl">Défense</span><span class="badge dot"></span></a>
+<a href="chantier.html"><span class="i " style="--m:url(img/icones/crane.svg)"></span><span class="lbl">Chantier spatial</span></a>
+<a><span class="i " style="--m:url(img/icones/anchor.svg)"></span><span class="lbl">Flotte</span></a>
+<a><span class="i " style="--m:url(img/icones/boot-prints.svg)"></span><span class="lbl">Missions</span><span class="badge num">1</span></a>
+<h6>SYSTÈME</h6>
+<a href="carte.html"><span class="i " style="--m:url(img/icones/solar-system.svg)"></span><span class="lbl">Carte du système</span></a>
+<a><span class="i " style="--m:url(img/icones/planet-conquest.svg)"></span><span class="lbl">Empire</span></a>
+<a><span class="i " style="--m:url(img/icones/long-antennae-bug.svg)"></span><span class="lbl">Menaces</span><span class="badge num red">1</span></a>
+<h6>ULTOR</h6>
+<a><span class="i " style="--m:url(img/icones/eagle-emblem.svg)"></span><span class="lbl">Renom et talents</span></a>
+<a><span class="i " style="--m:url(img/icones/open-book.svg)"></span><span class="lbl">Journal</span></a>
+<a><span class="i " style="--m:url(img/icones/gears.svg)"></span><span class="lbl">Réglages</span></a>
+</div>
+<div class="foot"><div class="rule" style="margin-bottom:12px"></div><div class="cap" style="margin-bottom:8px">Acte II · chapitre 5 sur 7</div><div style="font-size:13.5px;color:var(--ink)">Ses lieutenants</div><div class="sub" style="font-size:12.5px">Maintenant : pose une colonie sur Cinis III</div></div>
+</nav>
+<header class="top">
+<div class="res metal"><span class="i lg" style="--m:url(img/icones/metal-bar.svg)"></span><div><div class="k">MÉTAL</div><div class="v" style="margin-top:5px">150k</div></div></div>
+<div class="res crystal"><span class="i lg" style="--m:url(img/icones/crystal-growth.svg)"></span><div><div class="k">CRISTAL</div><div class="v" style="margin-top:5px">60k</div></div></div>
+<div class="res energy"><span class="i lg" style="--m:url(img/icones/power-lightning.svg)"></span><div><div class="k">ÉNERGIE</div><div class="v" style="margin-top:5px">100 %</div></div></div>
+<div class="res ichor"><span class="i lg" style="--m:url(img/icones/drop.svg)"></span><div><div class="k">ICHOR</div><div class="v" style="margin-top:5px">0</div></div></div>
+<div class="res alert"><span class="i lg" style="--m:url(img/icones/crossed-swords.svg)"></span><div><div class="k" style="color:var(--red)">ATTAQUE EN APPROCHE</div><div style="margin-top:5px;font-size:14px;color:var(--platinum)">La bande vise Cinis II · <span class="mono" style="color:var(--red)">imminent</span></div></div></div>
+<div class="world"><img src="img/globes/cinis-ii.png" width="38" height="38" alt=""><div><div class="cap" style="font-size:9.5px">MONDE</div><b>Cinis II</b></div></div>
+</header>
+<main class="main">
+<style>
+  /* D : la mise en page de C (la planète héroïne, les volets translucides à droite), plus le changement de monde, la
+     flotte en orbite ET à quai, et le bloc CE MONDE. Le changement de monde se fait en CSS seul (:has), animé. */
+  .screen.d { background: #05070f; }
+  .screen.d .main { position: static; overflow: visible; }
+  .heroes { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+  .heroes .h { position: absolute; inset: 0; background: center / 1440px 900px no-repeat; opacity: 0;
+    transform: scale(1.04) translateX(-24px); transition: opacity .9s ease, transform 1.4s cubic-bezier(.2,.7,.2,1); }
+  .heroes .h.ii { background-image: url(img/heros.jpg); }
+  .heroes .h.iv { background-image: url(img/illus/mondes/cinis-iv.jpg); }
+  .screen:has(#w-ii:checked) .h.ii, .screen:has(#w-iv:checked) .h.iv { opacity: 1; transform: none; }
+  .wsel { position: absolute; opacity: 0; pointer-events: none; }
+  .sw-ii, .sw-iv { transition: opacity .6s ease .15s; }
+  .screen:has(#w-ii:checked) .sw-iv, .screen:has(#w-iv:checked) .sw-ii { display: none; }
+
+  .ttl-d { position: absolute; left: 262px; top: 86px; z-index: 3; text-shadow: 0 2px 18px rgba(5,7,15,.95); }
+  .ttl-d h1 { font-size: 52px; letter-spacing: .02em; margin-top: 6px; }
+  .ttl-d .sub { color: var(--dialogue); margin-top: 6px; }
+  /* le changement de monde : les globes des mondes tenus, puis ceux qu'on peut prendre, éteints */
+  .switch { position: absolute; left: 258px; top: 196px; z-index: 3; display: flex; align-items: center; gap: 10px; }
+  .switch label, .switch .off { position: relative; display: grid; justify-items: center; gap: 4px; cursor: pointer; padding: 4px 6px 6px; }
+  .switch img { width: 48px; height: 48px; transition: transform .45s cubic-bezier(.2,.7,.2,1), filter .3s; filter: drop-shadow(0 2px 8px rgba(0,0,0,.7)); }
+  .switch label:hover img { transform: scale(1.12) rotate(-6deg); }
+  .switch span { font: 600 10.5px/1 "Source Sans 3"; letter-spacing: .12em; color: var(--dialogue); text-transform: uppercase; text-shadow: 0 1px 6px rgba(5,7,15,.95); }
+  .switch label::after { content: ""; position: absolute; left: 50%; top: 3px; width: 54px; height: 54px; margin-left: -27px; border-radius: 50%;
+    border: 1px solid rgba(127,211,230,0); transition: border-color .3s, box-shadow .3s; }
+  .screen:has(#w-ii:checked) label[for=w-ii]::after, .screen:has(#w-iv:checked) label[for=w-iv]::after {
+    border-color: rgba(127,211,230,.85); box-shadow: 0 0 14px rgba(127,211,230,.35); }
+  .screen:has(#w-ii:checked) label[for=w-ii] span, .screen:has(#w-iv:checked) label[for=w-iv] span { color: var(--platinum); }
+  .switch .off img { opacity: .38; filter: grayscale(.5); width: 38px; height: 38px; }
+  .switch .sep { width: 1px; height: 40px; background: var(--rule-strong); margin: 0 4px; }
+  .switch .k2 { position: absolute; left: 172px; top: -14px; font: 600 9.5px/1 "Source Sans 3"; letter-spacing: .16em; color: var(--dim); text-transform: uppercase; }
+  .switch .off span { color: var(--dim); }
+
+  .orb { position: absolute; z-index: 2; background: center / contain no-repeat; filter: drop-shadow(0 0 6px rgba(5,7,15,.6)); }
+  .orb.flot { animation: derive 14s ease-in-out infinite alternate; }
+  @keyframes derive { from { transform: translate(0, 0) rotate(var(--r, -10deg)); } to { transform: translate(-10px, 4px) rotate(var(--r, -10deg)); } }
+  .tagp { position: absolute; z-index: 3; display: flex; align-items: center; gap: 8px; padding: 6px 24px 7px 10px; font-size: 12.5px; color: var(--platinum); white-space: nowrap; }
+  .tagp .ring { width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--crystal); box-shadow: 0 0 12px rgba(127,211,230,.5); }
+
+  /* en bas : la flotte à quai, puis les trois files */
+  .quai { position: absolute; left: 258px; bottom: 82px; z-index: 3; display: flex; align-items: center; gap: 14px; padding: 10px 18px 10px 14px; }
+  .quai .q { display: grid; grid-template-columns: 64px auto; gap: 0 10px; align-items: center; }
+  .quai .q .p { width: 64px; height: 40px; background: center / contain no-repeat; }
+  .quai .q b { font: 500 18px/1 "Plex"; color: var(--platinum); } .quai .q small { display: block; font-size: 12px; color: var(--steel); margin-top: 3px; }
+  .files { position: absolute; left: 258px; bottom: 22px; z-index: 3; display: flex; gap: 10px; }
+  .chip { display: flex; align-items: center; gap: 10px; padding: 10px 18px 10px 12px; font-size: 13.5px; color: var(--platinum); }
+  .chip .t { font: 13px/1 "Plex"; color: var(--steel); }
+
+  /* la colonne de droite : CE MONDE, la puissance, IANOS, ce qui bouge */
+  .screen.d .aside { gap: 10px; padding-top: 14px; }
+  .cm { padding: 14px 18px 12px; }
+  .cm .hd { display: flex; align-items: baseline; gap: 10px; }
+  .cm .hd b { font: 22px/1 "Marcellus"; font-weight: 400; color: var(--platinum); }
+  .cm .hd .tag { margin-left: auto; font: 600 9.5px/1 "Source Sans 3"; letter-spacing: .14em; color: var(--crystal); padding: 3px 6px; border: 1px solid rgba(127,211,230,.4); }
+  .slots { display: flex; align-items: baseline; gap: 6px; margin-top: 12px; }
+  .slots .u { font: 500 26px/1 "Plex"; color: var(--platinum); } .slots .t { font: 15px/1 "Plex"; color: var(--steel); }
+  .slots .l { margin-left: auto; font-size: 12px; color: var(--steel); }
+  .seg { display: grid; grid-template-columns: repeat(33, 1fr); gap: 2px; margin-top: 7px; }
+  .seg i { height: 5px; background: rgba(141,149,166,.2); } .seg i.on { background: var(--crystal); } .seg i.x { background: rgba(232,96,76,.35); }
+  .kv { display: grid; grid-template-columns: 74px 1fr; gap: 6px 10px; margin-top: 12px; font-size: 13px; }
+  .kv dt { font: 600 9.5px/1.5 "Source Sans 3"; letter-spacing: .14em; color: var(--dim); text-transform: uppercase; padding-top: 1px; }
+  .kv dd { margin: 0; color: var(--ink); line-height: 1.35; }
+  .kv dd .neg { color: var(--red); } .kv dd .pos { color: var(--crystal); } .kv dd small { color: var(--steel); font-size: 12px; }
+  .pw { padding: 12px 18px 12px; }
+  .pw .tot { display: flex; align-items: baseline; gap: 10px; } .pw .tot b { font: 500 26px/1 "Plex"; color: var(--platinum); white-space: nowrap; }
+  .pw .stack { display: flex; height: 6px; margin: 9px 0 6px; } .pw .stack i { display: block; height: 100%; }
+  .pw .leg { display: flex; flex-wrap: wrap; gap: 4px 12px; font: 11.5px/1.3 "Plex"; color: var(--steel); }
+  .pw .leg span::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 5px; background: var(--c); }
+  .rank { margin-top: 9px; display: grid; grid-template-columns: 20px 1fr auto; gap: 3px 8px; font-size: 13px; }
+  .rank .me { color: var(--platinum); font-weight: 600; } .rank .n { font-family: "Plex"; text-align: right; }
+</style>
+
+<input class="wsel" type="radio" name="monde" id="w-ii" checked>
+<input class="wsel" type="radio" name="monde" id="w-iv">
+<div class="heroes"><div class="h ii"></div><div class="h iv"></div></div>
+
+<div class="ttl-d">
+  <div class="sw-ii"><div class="crumb" style="color:var(--dialogue)">BASE · MONDE NATAL</div><h1>Cinis II</h1></div>
+  <div class="sw-iv"><div class="crumb" style="color:var(--dialogue)">COLONIE · DOCTRINE CHANTIER</div><h1>Cinis IV</h1></div>
+</div>
+<div class="switch">
+  <label for="w-ii"><img src="img/globes/cinis-ii.png" alt=""><span>Cinis II</span></label>
+  <label for="w-iv"><img src="img/globes/cinis-iv.png" alt=""><span>Cinis IV</span></label>
+  <span class="sep"></span>
+  <span class="off" title="Cinis III · il faut la techno « Colonisation avancée »"><img src="img/globes/cinis-iii.png" alt=""><span>Cinis III</span></span>
+  <span class="off" title="Cinis I · le Cafard y tient encore sa base"><img src="img/globes/cinis-i.png" alt=""><span>Cinis I</span></span>
+  <span class="k2">à prendre</span>
+</div>
+
+<!-- la flotte en orbite : nos vaisseaux détourés, posés au limbe (Cinis IV n'a personne en orbite) -->
+<div class="sw-ii">
+  <div class="tagp fr etiquette" style="left:880px;top:142px"><span class="i sm" style="--m:url(img/icones/anchor.svg)"></span><span>en orbite · 9</span></div>
+  <div class="orb flot" style="left:870px;top:188px;width:126px;height:62px;--r:-14deg;background-image:url(img/illus/orbite/lord_corvette.webp)"></div>
+  <div class="orb flot" style="left:960px;top:246px;width:84px;height:42px;--r:-14deg;animation-delay:-4s;background-image:url(img/illus/orbite/lord_corvette.webp)"></div>
+  <div class="orb flot" style="left:850px;top:262px;width:70px;height:35px;--r:-14deg;animation-delay:-7s;background-image:url(img/illus/orbite/lord_corvette.webp)"></div>
+  <div class="orb flot" style="left:910px;top:316px;width:76px;height:52px;--r:-6deg;animation-delay:-2s;background-image:url(img/illus/orbite/colony_ship.webp)"></div>
+  <div class="orb flot" style="left:985px;top:366px;width:66px;height:44px;--r:-8deg;animation-delay:-9s;background-image:url(img/illus/orbite/recycler.webp)"></div>
+  <div class="tagp fr etiquette" style="left:792px;top:692px"><span class="ring"></span>Base de Cinis II · grue libre</div>
+</div>
+<div class="sw-iv">
+  <div class="tagp fr etiquette" style="left:1000px;top:210px"><span class="i sm" style="--m:url(img/icones/anchor.svg)"></span><span>personne en orbite</span></div>
+  <div class="tagp fr etiquette" style="left:760px;top:640px"><span class="ring"></span>Base de Cinis IV · Centrale solaire → 5</div>
+</div>
+
+<div class="quai glass sw-ii">
+  <div class="cap" style="writing-mode:vertical-rl;transform:rotate(180deg);font-size:9.5px">À QUAI</div>
+  <div class="q"><div class="p" style="background-image:url(img/illus/orbite/lord_corvette.webp)"></div><div><b>7</b><small>corvettes</small></div></div>
+  <div class="q"><div class="p" style="background-image:url(img/illus/orbite/colony_ship.webp)"></div><div><b>1</b><small>colonisation</small></div></div>
+  <div class="q"><div class="p" style="background-image:url(img/illus/orbite/recycler.webp)"></div><div><b>1</b><small>recycleur · 2 au champ</small></div></div>
+</div>
+<div class="quai glass sw-iv"><div class="cap" style="font-size:9.5px">À QUAI</div><span class="sub">aucun vaisseau · le chantier de Cinis IV est au niveau 1</span></div>
+
+<div class="files">
+  <div class="chip glass sw-ii"><span class="i " style="--m:url(img/icones/factory.svg)"></span>Structures<span class="badge dot"></span><span class="t">libre</span></div>
+  <div class="chip glass sw-ii"><span class="i " style="--m:url(img/icones/erlenmeyer.svg)"></span>Recherche<span class="badge dot"></span><span class="t">libre</span></div>
+  <div class="chip glass sw-ii"><span class="i " style="--m:url(img/icones/crane.svg)"></span>Chantier<span class="t">cale libre</span></div>
+  <div class="chip glass sw-iv"><span class="i " style="--m:url(img/icones/factory.svg)"></span>Structures<span class="t">centrale → 5 · 1 min 59 s</span></div>
+  <div class="chip glass sw-iv"><span class="i " style="--m:url(img/icones/crane.svg)"></span>Chantier<span class="t">cale libre</span></div>
+</div>
+</main>
+<aside class="aside">
+<div class="cm glass">
+  <div class="sw-ii">
+    <div class="hd"><span class="cap">Ce monde</span><b>Cinis II</b><span class="tag">MONDE NATAL</span></div>
+    <div class="slots"><span class="u">76</span><span class="t">/ 132 cases</span><span class="l">sur 176 · −25 %</span></div>
+    <div class="seg"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <dl class="kv">
+      <dt>Traits</dt><dd><span class="pos">Anomalie profonde</span> <small>· un puits géothermique</small><br><span class="neg">La terre brûlée</span> <small>· −25&nbsp;% de place</small></dd>
+      <dt>Produit</dt><dd><span class="amt metal" style="margin-right:8px"><span class="i sm" style="--m:url(img/icones/metal-bar.svg)"></span>77,3k</span><span class="amt crystal" style="margin-right:0"><span class="i sm" style="--m:url(img/icones/crystal-growth.svg)"></span>35,8k</span> <small>/ h</small><br><span class="mono" style="color:var(--energy);font-size:13px">100 %</span> <small>· 1 260 d'énergie pour 973</small></dd>
+      <dt>Doctrine</dt><dd>aucune <small>· monde natal</small></dd>
+      <dt>Garde</dt><dd>9 en orbite · 8 défenses</dd>
+    </dl>
+  </div>
+  <div class="sw-iv">
+    <div class="hd"><span class="cap">Ce monde</span><b>Cinis IV</b><span class="tag">GÉANTE</span></div>
+    <div class="slots"><span class="u">9</span><span class="t">/ 122 cases</span><span class="l">sur 124 · −10 %</span></div>
+    <div class="seg"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <dl class="kv">
+      <dt>Traits</dt><dd><span class="pos">Anneaux larges</span> <small>· une cale s'y ancre</small><br><span class="pos">Les lunes de garde</span> <small>· chantiers −15&nbsp;%</small><br><span class="neg">Loin de l'étoile</span> <small>· centrales −15&nbsp;%</small> · <span class="neg">Sans sol</span> <small>· −10&nbsp;% de place</small></dd>
+      <dt>Produit</dt><dd><span class="amt metal" style="margin-right:0"><span class="i sm" style="--m:url(img/icones/metal-bar.svg)"></span>3,2k</span> <small>/ h</small> · <span class="mono" style="color:var(--energy);font-size:13px">100 %</span></dd>
+      <dt>Doctrine</dt><dd>Chantier <small>· les chantiers d'ici durent 25&nbsp;% de moins</small></dd>
+      <dt>Terraf.</dt><dd>niveau 2 sur les 4 qui la consolident</dd>
+    </dl>
+  </div>
+</div>
+<div class="pw glass">
+  <div class="cap" style="margin-bottom:8px">Puissance · tout l'empire</div>
+  <div class="tot"><b>1 798</b><span class="sub">points · économie forte, défense mince</span></div>
+  <div class="stack"><i style="width:65.5%;background:var(--metal);opacity:.75"></i><i style="width:22.5%;background:var(--crystal)"></i><i style="width:11.8%;background:var(--steel)"></i><i style="width:.6%;background:var(--red)"></i></div>
+  <div class="leg"><span style="--c:var(--metal)">économie 1 177</span><span style="--c:var(--crystal)">recherche 405</span><span style="--c:var(--steel)">flotte 212</span><span style="--c:var(--red)">défense 4</span></div>
+  <div class="rank"><span class="mono" style="color:var(--steel)">1.</span><span class="me">Toi</span><span class="n me">1 798</span><span class="mono" style="color:var(--steel)">2.</span><span>La bande</span><span class="n" style="color:var(--steel)">≈ 79</span></div>
+</div>
+<div class="glass" style="padding:14px 18px 12px">
+  <div class="cap" style="color:var(--crystal);margin-bottom:10px">IANOS</div>
+  <div style="display:grid;grid-template-columns:42px 1fr;gap:12px;align-items:start">
+    <div style="width:42px;height:42px;background:url(img/ianos.png) center/cover;border:1px solid rgba(127,211,230,.35)"></div>
+    <p style="margin:0;color:var(--dialogue);font-size:13.5px;line-height:1.4">J'ai fini de lire les registres de la première base qu'on a prise au Cafard.</p>
+  </div>
+</div>
+<div class="glass" style="padding:12px 18px 6px">
+  <div class="cap" style="margin-bottom:2px">Ce qui bouge</div>
+  <div class="feed"><span style="color:var(--red);font:600 10px/1 'Source Sans 3';letter-spacing:.14em">ATTAQUE</span><span>la bande</span><span class="mono" style="color:var(--red);font-size:13px">imminent</span></div>
+  <div class="feed"><span style="color:var(--steel);font:600 10px/1 'Source Sans 3';letter-spacing:.14em">CINIS IV</span><span>centrale → 5</span><span class="time">1 min 59 s</span></div>
+  <div class="feed"><span style="color:var(--steel);font:600 10px/1 'Source Sans 3';letter-spacing:.14em">CHAMP</span><span>2 recycleurs à quai</span><span class="mono" style="font-size:13px;color:var(--ink)">+13k / h</span></div>
+</div>
+</aside>
+</div>
+<div class="legend">
+<b>Accueil D, B et C mêlés.</b> La mise en page de C (Cinis II en grand croissant, rendue par la sonde dans la vraie
+scène de l'accueil, l'interface en volets translucides) et ce que le fondateur a retenu de B : <b>le changement de monde</b>
+(les globes sous le titre, un clic et la planète, le titre, CE MONDE et la flotte changent ; Cinis III et Cinis I, à
+prendre, éteints, leur condition au survol), <b>la flotte en orbite</b> (nos vaisseaux détourés, posés au limbe) <b>et à
+quai</b> (le même compte, en liste : c'est la même garnison, le jeu n'a pas d'autre état d'orbite), et le bloc <b>CE
+MONDE</b> à la manière d'OGame : les cases utilisées sur le total (176, moins le quart que la terre brûlée retire), les
+traits, ce que le monde produit, sa doctrine, sa garde ; puis <b>la puissance</b> de tout l'empire et son classement
+contre les rivaux connus. Le jeu n'a ni diamètre ni température : la maquette n'en invente pas (voir docs/WEB.md § 9).
+Cinis IV en héroïne est une illustration de Cycles d'après son globe (le jeu n'a pas encore de pose d'accueil pour elle).
+</div>
+</body></html>
