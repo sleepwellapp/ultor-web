@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#05070f">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Ultor</title>
+    <link rel="preload" href="Build/d0ac3bac1ecb2aec3e8642172c85dd5d.wasm.unityweb" as="fetch" crossorigin>
+    <link rel="preload" href="Build/6b4be4d99c385271c33041542e4f0d10.data.unityweb" as="fetch" crossorigin>
+    <style>
+      /* WEB1 · LA PAGE AUTOUR DU CANEVAS. Le jeu est PORTRAIT et ne s'étire jamais : sur un écran large, sa colonne
+         (1080 × 2424, le Pixel) est centrée à pleine hauteur et le reste de l'écran prend la NUIT DU JEU — son fond
+         (#05070f), la sarcelle qui monte du bas, la nébuleuse et un champ d'étoiles semé comme celui de Sky.cs.
+         Sur un téléphone (fenêtre en portrait), le canevas prend tout l'écran. */
+      @font-face { font-family: "Marcellus"; src: url("marcellus.ttf") format("truetype"); font-display: swap; }
+      :root { --night: #05070f; --platinum: #f3f0e8; --steel: #8d95a6; --dim: #5c6474; --amber: #e8a64a;
+              --aspect: 0.4455; }
+      html, body { margin: 0; padding: 0; height: 100%; background: var(--night); overflow: hidden;
+        touch-action: none; -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent; }
+      #sky { position: fixed; inset: 0; width: 100%; height: 100%; display: block;
+        background:
+          radial-gradient(120% 70% at 78% 112%, rgba(1, 52, 56, .55), rgba(1, 13, 14, 0) 62%),
+          radial-gradient(60% 45% at 18% 22%, rgba(78, 52, 120, .16), rgba(5, 7, 15, 0) 70%),
+          radial-gradient(40% 30% at 86% 30%, rgba(232, 166, 74, .05), rgba(5, 7, 15, 0) 70%),
+          var(--night); }
+      #stage { position: fixed; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); height: 100%;
+        width: min(100vw, calc(100vh * var(--aspect))); width: min(100vw, calc(100dvh * var(--aspect)));
+        box-shadow: 0 0 0 1px rgba(141, 149, 166, .10), 0 0 80px 10px rgba(0, 0, 0, .65); }
+      @media (max-aspect-ratio: 5/8) { #stage { width: 100vw; box-shadow: none; } }
+      #canvas { width: 100%; height: 100%; display: block; outline: none; background: var(--night); }
+      #boot { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
+        justify-content: center; gap: 22px; background: var(--night); transition: opacity .45s ease-out; }
+      #boot.done { opacity: 0; pointer-events: none; }
+      #boot .title { font: 34px/1 "Marcellus", Georgia, serif; letter-spacing: .32em; color: var(--platinum); margin-left: .32em; }
+      #boot .sub { font: 12px/1.4 ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: .18em; color: var(--steel);
+        text-transform: uppercase; }
+      #boot .track { width: min(56%, 240px); height: 2px; background: rgba(141, 149, 166, .18); overflow: hidden; }
+      #boot .fill { height: 100%; width: 100%; background: var(--amber); transform-origin: left; transform: scaleX(0);
+        transition: transform .2s ease-out; }
+      #full { position: fixed; right: 18px; bottom: 18px; width: 40px; height: 40px; border: 1px solid rgba(141,149,166,.35);
+        background: rgba(12, 16, 28, .72); color: var(--steel); display: flex; align-items: center; justify-content: center;
+        cursor: pointer; padding: 0; transition: color .15s, border-color .15s; z-index: 3; }
+      #full:hover, #full:focus-visible { color: var(--platinum); border-color: var(--amber); outline: none; }
+      #full svg { width: 18px; height: 18px; }
+      #full .out { display: none; } :fullscreen #full .in { display: none; } :fullscreen #full .out { display: block; }
+      /* Sur un téléphone, pas de bouton posé sur le jeu : le premier toucher demande le plein écran. */
+      @media (max-aspect-ratio: 5/8) { #full { display: none; } }
+      #full[hidden] { display: none; }
+    </style>
+  </head>
+  <body>
+    <canvas id="sky" aria-hidden="true"></canvas>
+    <div id="stage">
+      <canvas id="canvas" tabindex="-1"></canvas>
+      <div id="boot">
+        <div class="title">ULTOR</div>
+        <div class="track"><div class="fill" id="boot-fill"></div></div>
+        <div class="sub" id="boot-label">chargement</div>
+      </div>
+    </div>
+    <button id="full" type="button" aria-label="Plein écran" title="Plein écran (F)">
+      <svg class="in" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 6V1h5M12 1h5v5M17 12v5h-5M6 17H1v-5"/></svg>
+      <svg class="out" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 1v5H1M17 6h-5V1M12 17v-5h5M1 12h5v5"/></svg>
+    </button>
+    <script>
+      (function () {
+        var t0 = performance.now();
+        window.ultorMarks = window.ultorMarks || {};
+        var marks = window.ultorMarks;
+        var boot = document.getElementById('boot');
+        var fill = document.getElementById('boot-fill');
+        var label = document.getElementById('boot-label');
+        var canvas = document.getElementById('canvas');
+        var full = document.getElementById('full');
+        var root = document.documentElement;
+
+        // ── LE CIEL DE LA PAGE : un champ d'étoiles SEMÉ (même graine, même ciel à chaque visite), redessiné au
+        // redimensionnement seulement — zéro coût par frame.
+        var sky = document.getElementById('sky');
+        function drawSky() {
+          var dpr = Math.min(window.devicePixelRatio || 1, 2), w = innerWidth, h = innerHeight;
+          sky.width = Math.round(w * dpr); sky.height = Math.round(h * dpr);
+          var g = sky.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0); g.clearRect(0, 0, w, h);
+          var s = 1597334677 >>> 0;
+          function rnd() { s ^= s << 13; s >>>= 0; s ^= s >>> 17; s ^= s << 5; s >>>= 0; return s / 4294967296; }
+          var n = Math.round(w * h / 2600);
+          for (var i = 0; i < n; i++) {
+            var x = rnd() * w, y = rnd() * h, r = 0.35 + Math.pow(rnd(), 4) * 1.25, a = 0.18 + Math.pow(rnd(), 2) * 0.62;
+            var warm = rnd() < 0.12;
+            g.fillStyle = warm ? 'rgba(243,226,200,' + a + ')' : 'rgba(214,224,240,' + a + ')';
+            g.beginPath(); g.arc(x, y, r, 0, 6.2832); g.fill();
+          }
+        }
+        drawSky(); addEventListener('resize', drawSky);
+
+        // ── LE PLEIN ÉCRAN (API Fullscreen). Ordinateur : le bouton, ou F. Téléphone : le premier toucher sur le jeu
+        // demande le vrai plein écran et verrouille le portrait, là où le navigateur le permet (Android, pas l'iPhone).
+        var canFull = !!(root.requestFullscreen || root.webkitRequestFullscreen);
+        if (!canFull) full.hidden = true;
+        function isFull() { return !!(document.fullscreenElement || document.webkitFullscreenElement); }
+        function enter() {
+          var req = root.requestFullscreen || root.webkitRequestFullscreen;
+          if (!req) return;
+          try {
+            var p = req.call(root, { navigationUI: 'hide' });
+            if (p && p.then) p.then(function () {
+              if (screen.orientation && screen.orientation.lock && phone()) screen.orientation.lock('portrait').catch(function () {});
+            }).catch(function () {});
+          } catch (e) {}
+        }
+        function exit() { (document.exitFullscreen || document.webkitExitFullscreen).call(document); }
+        function toggle() { isFull() ? exit() : enter(); }
+        function phone() { return matchMedia('(pointer: coarse)').matches && innerWidth / innerHeight < 0.75; }
+        full.addEventListener('click', function (e) { e.stopPropagation(); toggle(); });
+        addEventListener('keydown', function (e) { if ((e.key === 'f' || e.key === 'F') && !e.repeat && !e.ctrlKey && !e.metaKey) toggle(); });
+        var askedOnTouch = false;
+        canvas.addEventListener('pointerup', function () {
+          if (askedOnTouch || !canFull || !phone() || isFull()) return;
+          askedOnTouch = true; enter();
+        });
+
+        // ── LE CHARGEMENT : une barre (le moteur, 90 %), puis le jeu dit ses deux repères (GameRoot.Web.cs).
+        function progress(p) { fill.style.transform = 'scaleX(' + Math.min(1, p) + ')'; label.textContent = 'chargement ' + Math.round(Math.min(1, p) * 100) + ' %'; }
+        function mark(name, t) { if (!(name in marks)) marks[name] = t === undefined ? performance.now() : t; }
+        window.ultorWeb = {
+          onMark: function (name) {
+            if (name === 'premiere-image') {
+              progress(1); boot.classList.add('done'); setTimeout(function () { boot.remove(); }, 500); canvas.focus();
+            }
+          }
+        };
+
+        // L'APERÇU : ?partie=nom sème une partie de parties/ (écrite par la sonde, ScreenProbe.WEB1.cs) au premier
+        // lancement ; le paramètre est retiré de l'adresse aussitôt, pour qu'un rechargement REPRENNE au lieu de resemer.
+        var params = new URLSearchParams(location.search), partie = params.get('partie');
+        var seeded = !partie || !/^[a-z0-9-]{1,40}$/.test(partie) ? Promise.resolve() :
+          fetch('parties/' + partie + '.json').then(function (r) { return r.ok ? r.text() : ''; })
+            .then(function (t) { window.ultorSeed = t; history.replaceState(null, '', location.pathname); })
+            .catch(function () {});
+        var s = document.createElement('script');
+        s.src = 'Build/ce4f65208865f9961ab78cc4a8cc5ce9.loader.js';
+        s.onload = function () { seeded.then(start); };
+        function start() {
+          mark('chargeur');
+          createUnityInstance(canvas, {
+            dataUrl: 'Build/6b4be4d99c385271c33041542e4f0d10.data.unityweb',
+            frameworkUrl: 'Build/9ae91a5e9acbb49893c3391a9dcc35e2.framework.js.unityweb',
+            codeUrl: 'Build/d0ac3bac1ecb2aec3e8642172c85dd5d.wasm.unityweb',
+            streamingAssetsUrl: 'StreamingAssets',
+            companyName: "goodapps",
+            productName: "Ultor",
+            productVersion: "1.0",
+            // Au-delà de 2, un écran dessine deux fois plus de pixels pour une interface qui n'en montre pas plus.
+            devicePixelRatio: Math.min(window.devicePixelRatio || 1, 2)
+          }, function (p) { progress(0.9 * p); if (p >= 1) mark('telecharge'); }).then(function (instance) {
+            window.unityInstance = instance;
+            mark('instance');
+          }).catch(function (e) {
+            console.error(e);
+            label.textContent = 'le jeu n’a pas pu démarrer';
+          });
+        }
+        document.body.appendChild(s);
+      })();
+    </script>
+  </body>
+</html>

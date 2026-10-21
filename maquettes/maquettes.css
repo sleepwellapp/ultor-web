@@ -1,0 +1,113 @@
+/* WEB1 · LES MAQUETTES DE LA VERSION PLEINE PAGE (1440 × 900), dans la charte « Orbite » (docs/DA.md) :
+   la nuit, le platine, Marcellus pour les titres, Source Sans 3 pour le texte, IBM Plex Mono pour TOUT chiffre,
+   un seul point ambre par écran. Les cadres sont les masques du pack B du jeu, les icônes celles de game-icons.net,
+   les images de la 3D sont des rendus de la sonde (Tools/probe.sh) : rien n'est dessiné à la main ni généré. */
+@font-face { font-family: "Marcellus"; src: url(fonts/Marcellus-Regular.ttf); }
+@font-face { font-family: "Source Sans 3"; src: url(fonts/SourceSans3-Regular.ttf); font-weight: 400; }
+@font-face { font-family: "Source Sans 3"; src: url(fonts/SourceSans3-Semibold.ttf); font-weight: 600; }
+@font-face { font-family: "Plex"; src: url(fonts/IBMPlexMono-Regular.ttf); font-weight: 400; }
+@font-face { font-family: "Plex"; src: url(fonts/IBMPlexMono-Medium.ttf); font-weight: 500; }
+
+:root {
+  --night: #05070f; --platinum: #f3f0e8; --ink: #dfe3ea; --steel: #8d95a6; --dim: #5c6474; --surface: #0c101c;
+  --amber: #e8a64a; --crystal: #7fd3e6; --metal: #dfe3ea; --energy: #e8c06a; --red: #e8604c; --ichor: #a97be0;
+  --dialogue: #c9cfda; --rule: rgba(141, 149, 166, .16); --rule-strong: rgba(141, 149, 166, .28);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: #020309; }
+body { font: 15px/1.4 "Source Sans 3", system-ui, sans-serif; color: var(--ink); }
+.screen { width: 1440px; height: 900px; margin: 0 auto; position: relative; overflow: hidden; background: var(--night);
+  display: grid; grid-template-columns: 232px 1fr 344px; grid-template-rows: 64px 1fr; }
+.mono { font-family: "Plex", ui-monospace, monospace; }
+.cap { font: 600 11px/1 "Source Sans 3"; letter-spacing: .16em; text-transform: uppercase; color: var(--steel); }
+
+/* ── les icônes : un masque game-icons teint par son jeton ── */
+.i { display: inline-block; width: 18px; height: 18px; background: currentColor; flex: none;
+  -webkit-mask: var(--m) center / contain no-repeat; mask: var(--m) center / contain no-repeat; vertical-align: -3px; }
+.i.lg { width: 30px; height: 30px; } .i.xl { width: 40px; height: 40px; } .i.sm { width: 14px; height: 14px; vertical-align: -2px; }
+
+/* ── les cadres du pack B : neuf tranches, posées derrière le contenu ── */
+.fr { position: relative; isolation: isolate; }
+.fr::before { content: ""; position: absolute; inset: 0; z-index: -1; border-style: solid; pointer-events: none; }
+.fr.carte::before { border-width: 62px 52px 20px 12px; border-image: url(img/cadres/carte.png) 178 149 56 35 fill / 62px 52px 20px 12px; }
+.fr.carte-braise::before { border-width: 62px 52px 20px 12px; border-image: url(img/cadres/carte-braise.png) 178 149 56 35 fill / 62px 52px 20px 12px; }
+.fr.tuile::before { border-width: 19px 52px 10px 19px; border-image: url(img/cadres/tuile.png) 48 130 26 48 fill / 19px 52px 10px 19px; }
+.fr.tuile-braise::before { border-width: 19px 52px 10px 19px; border-image: url(img/cadres/tuile-braise.png) 48 130 26 48 fill / 19px 52px 10px 19px; }
+.fr.console::before { border-width: 40px 3px 3px 79px; border-image: url(img/cadres/console.png) 100 7 6 198 fill / 40px 3px 3px 79px; }
+.fr.plaque::before { border-width: 9px; border-image: url(img/cadres/plaque.png) 24 fill / 9px; }
+.fr.onglet::before { border-width: 15px 40px 9px 15px; border-image: url(img/cadres/onglet.png) 44 119 25 44 fill / 15px 40px 9px 15px; }
+.fr.onglet-braise::before { border-width: 15px 40px 9px 15px; border-image: url(img/cadres/onglet-braise.png) 44 119 25 44 fill / 15px 40px 9px 15px; }
+.fr.etiquette::before { border-width: 9px 22px 5px 9px; border-image: url(img/cadres/etiquette.png) 26 66 16 27 fill / 9px 22px 5px 9px; }
+
+/* ── LE BOUTON PRINCIPAL : la pièce B, le dégradé ambre de la charte ── */
+.btn { position: relative; isolation: isolate; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  height: 44px; padding: 0 30px 2px 22px; font: 600 13px/1 "Source Sans 3"; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--amber); }
+.btn::before { content: ""; position: absolute; inset: 0; z-index: -1; border-style: solid; border-width: 16px 44px 9px 16px;
+  border-image: url(img/cadres/bouton.png) 56 156 31 57 fill / 16px 44px 9px 16px;
+  background: linear-gradient(rgba(232,166,74,.20), rgba(232,166,74,.05)); background-clip: padding-box; }
+.btn.acier { color: var(--platinum); } .btn.acier::before { border-image-source: url(img/cadres/bouton-acier.png); background: none; }
+
+/* ── LA COLONNE DE GAUCHE : le menu (les ancres et les destinations du jeu) ── */
+.side { grid-row: 1 / 3; border-right: 1px solid var(--rule); background: linear-gradient(180deg, rgba(12,16,28,.92), rgba(5,7,15,.96));
+  display: flex; flex-direction: column; padding: 0 0 18px; z-index: 2; }
+.brand { height: 64px; display: flex; align-items: center; gap: 12px; padding: 0 22px; border-bottom: 1px solid var(--rule); }
+.brand b { font: 22px/1 "Marcellus"; letter-spacing: .3em; color: var(--platinum); font-weight: 400; }
+.brand small { font: 10px/1.2 "Plex"; color: var(--dim); letter-spacing: .08em; }
+.nav { padding: 14px 0 0; }
+.nav h6 { margin: 16px 22px 6px; font: 600 10.5px/1 "Source Sans 3"; letter-spacing: .2em; color: var(--dim); }
+.nav a { display: flex; align-items: center; gap: 12px; height: 34px; padding: 0 16px 0 22px; white-space: nowrap; color: var(--ink); text-decoration: none;
+  font-size: 14.5px; position: relative; }
+.nav a .i { color: var(--steel); }
+.nav a .n { margin-left: auto; font: 11px/1 "Plex"; color: var(--steel); }
+.nav a .n.k-hint { color: var(--crystal); } .nav a .n.k-braise { color: var(--amber); } .nav a .n.k-rouge { color: var(--red); }
+.res.alert { color: var(--red); background: linear-gradient(90deg, rgba(232,96,76,.10), rgba(232,96,76,0)); }
+.nav a.on { color: var(--platinum); background: linear-gradient(90deg, rgba(232,166,74,.14), rgba(232,166,74,0) 85%); }
+.nav a.on::before { content: ""; position: absolute; left: 0; top: 6px; bottom: 6px; width: 3px; background: var(--amber); }
+.nav a.on .i { color: var(--amber); }
+.nav a .hint { width: 7px; height: 7px; border-radius: 50%; background: var(--crystal); margin-left: 6px; box-shadow: 0 0 6px rgba(127,211,230,.6); }
+.side .foot { margin-top: auto; padding: 0 16px; }
+
+/* ── LE HAUT : les ressources, mesurées et pas divisées (DA §2.3 ter), le monde, l'heure ── */
+.top { grid-column: 2 / 4; display: flex; align-items: stretch; border-bottom: 1px solid var(--rule); background: rgba(5,7,15,.86); z-index: 2; }
+.res { display: flex; align-items: center; gap: 10px; padding: 0 22px; border-right: 1px solid var(--rule); min-width: 0; }
+.res .v { font: 500 18px/1 "Plex"; } .res .k { font: 600 10px/1 "Source Sans 3"; letter-spacing: .18em; color: var(--steel); }
+.res .p { font: 11.5px/1 "Plex"; color: var(--steel); margin-top: 5px; }
+.res .bar { height: 2px; background: rgba(141,149,166,.18); margin-top: 6px; } .res .bar i { display: block; height: 100%; }
+.res.metal { color: var(--metal); } .res.crystal { color: var(--crystal); } .res.ichor { color: var(--ichor); } .res.energy { color: var(--energy); }
+.top .world { margin-left: auto; display: flex; align-items: center; gap: 12px; padding: 0 22px; border-left: 1px solid var(--rule); }
+.top .world b { font: 19px/1 "Marcellus"; font-weight: 400; color: var(--platinum); }
+.top .clock { display: flex; flex-direction: column; justify-content: center; padding: 0 22px; border-left: 1px solid var(--rule); text-align: right; }
+
+/* ── LE CENTRE ET LA COLONNE DE DROITE ── */
+.main { position: relative; overflow: hidden; }
+.aside { border-left: 1px solid var(--rule); background: rgba(5,7,15,.9); padding: 18px 18px 18px 20px; overflow: hidden; z-index: 1; display: flex; flex-direction: column; gap: 14px; }
+h1 { font: 34px/1 "Marcellus"; font-weight: 400; color: var(--platinum); margin: 0; }
+h2 { font: 21px/1.1 "Marcellus"; font-weight: 400; color: var(--platinum); margin: 0; }
+.crumb { font: 600 11px/1 "Source Sans 3"; letter-spacing: .16em; color: var(--steel); text-transform: uppercase; }
+.sub { color: var(--steel); font-size: 13.5px; }
+.rule { height: 1px; background: var(--rule); }
+
+/* IANOS : la console du pack (l'onglet cristal, la fenêtre, le portrait) */
+.ianos { padding: 14px 16px 14px 16px; display: grid; grid-template-columns: 58px 1fr; gap: 0 14px; }
+.ianos .tab { grid-column: 1 / 3; font: 600 10.5px/1 "Source Sans 3"; letter-spacing: .22em; color: var(--crystal); margin: -2px 0 12px 2px; }
+.ianos .face { width: 58px; height: 58px; border: 1px solid rgba(127,211,230,.35); background: #070b14 center / cover; }
+.ianos p { margin: 0; color: var(--dialogue); font-size: 14px; line-height: 1.42; }
+.ianos .do { margin-top: 8px; font-size: 13px; color: var(--ink); display: flex; gap: 8px; align-items: center; }
+.ianos .do::before { content: ""; width: 11px; height: 11px; border: 1px solid var(--steel); flex: none; }
+
+/* listes denses, à la OGame */
+table.t { width: 100%; border-collapse: collapse; }
+table.t th { font: 600 10.5px/1 "Source Sans 3"; letter-spacing: .16em; color: var(--dim); text-transform: uppercase; text-align: left; padding: 0 10px 8px; }
+table.t td { padding: 9px 10px; border-top: 1px solid var(--rule); font-size: 14px; vertical-align: middle; }
+table.t td.num, table.t th.num { text-align: right; font-family: "Plex"; }
+.amt { display: inline-flex; align-items: center; gap: 5px; font: 13px/1 "Plex"; margin-right: 12px; white-space: nowrap; }
+.amt.metal { color: var(--metal); } .amt.crystal { color: var(--crystal); } .amt.ichor { color: var(--ichor); } .amt.short { color: var(--red); }
+.time { font: 13px/1 "Plex"; color: var(--steel); white-space: nowrap; }
+.gauge { display: flex; gap: 3px; } .gauge i { width: 9px; height: 5px; background: rgba(141,149,166,.22); } .gauge i.on { background: var(--crystal); } .gauge i.next { background: rgba(127,211,230,.45); }
+.progress { height: 3px; background: rgba(141,149,166,.18); } .progress i { display: block; height: 100%; background: var(--amber); }
+
+/* la légende des maquettes, hors de l'écran */
+.legend { width: 1440px; margin: 18px auto 40px; color: var(--steel); font-size: 14px; line-height: 1.55; }
+.legend b { color: var(--platinum); font-weight: 600; }
+.legend a { color: var(--crystal); }

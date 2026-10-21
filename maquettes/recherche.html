@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=1480"><title>Ultor · maquette · recherche</title><link rel="stylesheet" href="maquettes.css"></head>
+<body><div class="legend" style="margin-top:18px">Ultor, version pleine page · maquettes 1440 × 900 · <a href="accueil.html">Cinis II · l'accueil</a> · <b>La Recherche</b> · <a href="carte.html">La carte du système</a> · <a href="../">le jeu tel quel</a></div>
+<div class="screen">
+<nav class="side">
+<div class="brand"><b>ULTOR</b><small>ASH OF<br>EMPIRE</small></div>
+<div class="nav">
+<h6>BASE</h6>
+<a href="accueil.html"><span class="i " style="--m:url(img/icones/world.svg)"></span>Cinis II</a>
+<a><span class="i " style="--m:url(img/icones/factory.svg)"></span>Structures<span class="n k-braise">libre</span></a>
+<a class="on" href="recherche.html"><span class="i " style="--m:url(img/icones/erlenmeyer.svg)"></span>Recherche<span class="n k-hint">libre</span></a>
+<a><span class="i " style="--m:url(img/icones/crenulated-shield.svg)"></span>Défense<span class="n k-hint">1 à bâtir</span></a>
+<a><span class="i " style="--m:url(img/icones/crane.svg)"></span>Chantier spatial<span class="n k-">cale libre</span></a>
+<a><span class="i " style="--m:url(img/icones/anchor.svg)"></span>Flotte<span class="n k-">9 à quai</span></a>
+<a><span class="i " style="--m:url(img/icones/boot-prints.svg)"></span>Missions<span class="n k-">87 marines</span></a>
+<h6>SYSTÈME</h6>
+<a href="carte.html"><span class="i " style="--m:url(img/icones/solar-system.svg)"></span>Carte du système</a>
+<a><span class="i " style="--m:url(img/icones/planet-conquest.svg)"></span>Empire<span class="n k-">2 mondes</span></a>
+<a><span class="i " style="--m:url(img/icones/long-antennae-bug.svg)"></span>Menaces<span class="n k-rouge">1</span></a>
+<h6>ULTOR</h6>
+<a><span class="i " style="--m:url(img/icones/eagle-emblem.svg)"></span>Renom et talents</a>
+<a><span class="i " style="--m:url(img/icones/open-book.svg)"></span>Journal</a>
+<a><span class="i " style="--m:url(img/icones/gears.svg)"></span>Réglages</a>
+</div>
+<div class="foot"><div class="rule" style="margin-bottom:12px"></div><div class="cap" style="margin-bottom:8px">Acte II · chapitre 5 sur 7</div><div style="font-size:13.5px;color:var(--ink)">Ses lieutenants</div><div class="sub" style="font-size:12.5px">Maintenant : pose une colonie sur Cinis III</div></div>
+</nav>
+<header class="top">
+<div class="res metal"><span class="i lg" style="--m:url(img/icones/metal-bar.svg)"></span><div><div class="k">MÉTAL</div><div class="v" style="margin-top:5px">150k</div></div></div>
+<div class="res crystal"><span class="i lg" style="--m:url(img/icones/crystal-growth.svg)"></span><div><div class="k">CRISTAL</div><div class="v" style="margin-top:5px">60k</div></div></div>
+<div class="res energy"><span class="i lg" style="--m:url(img/icones/power-lightning.svg)"></span><div><div class="k">ÉNERGIE</div><div class="v" style="margin-top:5px">100 %</div></div></div>
+<div class="res ichor"><span class="i lg" style="--m:url(img/icones/drop.svg)"></span><div><div class="k">ICHOR</div><div class="v" style="margin-top:5px">0</div></div></div>
+<div class="res alert"><span class="i lg" style="--m:url(img/icones/crossed-swords.svg)"></span><div><div class="k" style="color:var(--red)">ATTAQUE EN APPROCHE</div><div style="margin-top:5px;font-size:14px;color:var(--platinum)">La bande vise Cinis II · <span class="mono" style="color:var(--red)">imminent</span></div></div></div>
+<div class="world"><img src="img/globes/cinis-ii.png" width="38" height="38" alt=""><div><div class="cap" style="font-size:9.5px">MONDE</div><b>Cinis II</b></div></div>
+</header>
+<main class="main">
+<style>
+  .pad { position: absolute; inset: 0; padding: 22px 28px; display: flex; flex-direction: column; gap: 14px;
+    background: radial-gradient(70% 60% at 90% 0%, rgba(1,52,56,.22), rgba(5,7,15,0) 70%); }
+  .head { display: flex; align-items: flex-end; gap: 20px; }
+  .tabs { display: flex; gap: 6px; margin-left: auto; }
+  .tabs span { padding: 12px 46px 13px 20px; font: 600 12px/1 "Source Sans 3"; letter-spacing: .2em; color: var(--steel); }
+  .tabs span.on { color: var(--platinum); }
+  .lab { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .tech { display: grid; grid-template-columns: 44px 1fr auto; gap: 4px 14px; align-items: center; padding: 14px 50px 14px 16px; min-height: 96px; }
+  .tech .meta.cost { grid-column: 2 / 4; gap: 14px; }
+  .tech .ic { grid-row: 1 / 4; color: var(--platinum); }
+  .tech b { font-weight: 600; font-size: 15px; color: var(--platinum); }
+  .tech .eff { grid-row: 1 / 3; grid-column: 3; text-align: right; font: 14px/1.35 "Plex"; color: var(--crystal); white-space: nowrap; }
+  .tech .meta { display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: var(--steel); white-space: nowrap; overflow: hidden; } .tech .meta .amt { margin-right: 0; }
+  .tech.lock { opacity: .55; } .tech.lock b { color: var(--ink); }
+  .tech.sel::after { content: ""; position: absolute; inset: -3px -3px -3px -3px; border: 1px solid rgba(127,211,230,.55); pointer-events: none; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+  .section { display: flex; align-items: center; gap: 12px; margin-top: 4px; }
+  .section::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+  .bulb { width: 9px; height: 9px; border-radius: 50%; background: var(--crystal); box-shadow: 0 0 8px rgba(127,211,230,.6); display: inline-block; }
+</style>
+<div class="pad">
+  <div class="head">
+    <div><div class="crumb">BASE · LABORATOIRE</div><h1 style="margin-top:6px">Recherche</h1></div>
+    <div class="sub" style="padding-bottom:5px">le labo est libre</div>
+    <div class="tabs"><span class="fr onglet-braise on">CIVIL</span><span class="fr onglet">MILITAIRE</span></div>
+  </div>
+  <div class="tech fr carte" style="grid-template-columns:64px 1fr auto;min-height:118px;padding:22px 64px 22px 22px">
+    <span class="ic" style="color:var(--platinum)"><span class="i xl" style="--m:url(img/icones/anvil.svg)"></span></span><div><div class="cap" style="font-size:10px">Prête à partir</div><b style="font:24px/1.2 Marcellus;font-weight:400">Métallurgie de crise</b></div>
+    <span class="eff" style="font-size:15px">+36 % → +47 %<br><span style="color:var(--steel)">de production</span></span>
+    <div class="meta"><span class="amt metal"><span class="i sm" style="--m:url(img/icones/metal-bar.svg)"></span>18k</span><span class="amt crystal"><span class="i sm" style="--m:url(img/icones/crystal-growth.svg)"></span>8,8k</span><span class="time"><span class="i sm" style="--m:url(img/icones/hourglass.svg)"></span> 1 h 52</span></div>
+  </div>
+  <div class="lab">
+    <div class="tech fr tuile"><span class="ic"><span class="i xl" style="--m:url(img/icones/crystal-growth.svg)"></span></span><b>Cristallographie appliquée</b><span class="eff" style="color:var(--crystal)">+36 %<br><span style="color:var(--steel)">cristal</span></span><div class="meta"><span class="gauge"><i class="on"></i><i class="on"></i><i class="on"></i><i class="next"></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span>rang 3 sur 10</span></div><div class="meta cost"><span class="amt metal"><span class="i sm" style="--m:url(img/icones/metal-bar.svg)"></span>6,5k</span><span class="amt crystal"><span class="i sm" style="--m:url(img/icones/crystal-growth.svg)"></span>6,5k</span><span class="time">1 h 01</span></div></div>
+    <div class="tech fr tuile"><span class="ic"><span class="i xl" style="--m:url(img/icones/power-lightning.svg)"></span></span><b>Réseau d'énergie</b><span class="eff" style="color:var(--energy)">+8 %<br><span style="color:var(--steel)">énergie</span></span><div class="meta"><span class="gauge"><i class="next"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span>rang 0 sur 10</span></div><div class="meta cost"><span class="amt metal"><span class="i sm" style="--m:url(img/icones/metal-bar.svg)"></span>1,2k</span><span class="amt crystal"><span class="i sm" style="--m:url(img/icones/crystal-growth.svg)"></span>900</span><span class="time">11 min</span></div></div>
+    <div class="tech fr tuile"><span class="ic"><span class="i xl" style="--m:url(img/icones/robot-grab.svg)"></span></span><b>Robotique de chantier</b><span class="eff" style="color:var(--ink)">−25 %<br><span style="color:var(--steel)">durées</span></span><div class="meta"><span class="gauge"><i class="on"></i><i class="on"></i><i class="on"></i><i class="next"></i><i></i><i></i><i></i><i></i></span><span>rang 3 sur 8</span></div><div class="meta cost"><span class="amt metal"><span class="i sm" style="--m:url(img/icones/metal-bar.svg)"></span>19k</span><span class="amt crystal"><span class="i sm" style="--m:url(img/icones/crystal-growth.svg)"></span>15k</span><span class="time">2 h 56</span></div></div>
+    <div class="tech fr tuile"><span class="ic"><span class="i xl" style="--m:url(img/icones/volcano.svg)"></span></span><b>Géothermie appliquée</b><span class="eff" style="color:var(--ink)">ouvre<br><span style="color:var(--steel)">un puits</span></span><div class="meta"><span class="gauge"><i class="next"></i></span><span>un seul rang</span></div><div class="meta cost"><span class="amt metal"><span class="i sm" style="--m:url(img/icones/metal-bar.svg)"></span>4k</span><span class="amt crystal"><span class="i sm" style="--m:url(img/icones/crystal-growth.svg)"></span>3k</span><span class="time">44 min</span></div></div>
+    <div class="tech fr tuile"><span class="ic"><span class="i xl" style="--m:url(img/icones/cargo-crate.svg)"></span></span><b>Logistique de guerre</b><span class="eff" style="color:var(--ink)">+7 %<br><span style="color:var(--steel)">soute</span></span><div class="meta"><span class="gauge"><i class="next"></i><i></i><i></i><i></i><i></i><i></i></span><span>rang 0 sur 6</span></div><div class="meta cost"><span class="amt metal"><span class="i sm" style="--m:url(img/icones/metal-bar.svg)"></span>70k</span><span class="amt crystal"><span class="i sm" style="--m:url(img/icones/crystal-growth.svg)"></span>50k</span><span class="time">2 h 32</span></div></div>
+    <div class="tech fr tuile"><span class="ic"><span class="i xl" style="--m:url(img/icones/auto-repair.svg)"></span></span><b>Récupération</b><span class="eff" style="color:var(--ink)">+10 %<br><span style="color:var(--steel)">recyclage</span></span><div class="meta"><span class="gauge"><i class="next"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span>rang 0 sur 8</span></div><div class="meta cost"><span class="amt metal"><span class="i sm" style="--m:url(img/icones/metal-bar.svg)"></span>30k</span><span class="amt crystal"><span class="i sm" style="--m:url(img/icones/crystal-growth.svg)"></span>20k</span><span class="time">1 h 27</span></div></div>
+  </div>
+  <div class="section"><span class="cap">Verrouillé</span></div>
+  <div class="lab">
+    <div class="tech fr tuile lock"><span class="ic"><span class="i xl" style="--m:url(img/icones/star-gate.svg)"></span></span><b>Saut d'Ichor</b><span class="eff" style="color:var(--steel)"><span class="i " style="--m:url(img/icones/padlock.svg)"></span></span><div class="meta">au labo, après le Raffinage d'Ichor</div></div>
+    <div class="tech fr tuile lock"><span class="ic"><span class="i xl" style="--m:url(img/icones/planet-conquest.svg)"></span></span><b>Colonisation avancée</b><span class="eff" style="color:var(--steel)"><span class="i " style="--m:url(img/icones/padlock.svg)"></span></span><div class="meta">quand le système est annexé</div></div>
+  </div>
+</div>
+</main>
+<aside class="aside">
+<div><div class="crumb">TECHNOLOGIE · CIVIL</div><h2 style="margin-top:8px;font-size:26px">Métallurgie de crise</h2>
+<div class="sub" style="margin-top:6px">prête à partir · le labo est libre</div></div>
+<p style="margin:0;color:var(--dialogue);font-size:14px;line-height:1.5">Augmente la production de métal par rang sur Cinis II ; une colonie n'en reçoit qu'une part.</p>
+<div class="fr tuile" style="padding:16px 52px 16px 18px">
+  <div class="cap" style="margin-bottom:10px">Au rang suivant</div>
+  <div style="display:flex;align-items:baseline;gap:12px"><span class="mono" style="font-size:22px;color:var(--steel);white-space:nowrap">+36 %</span><span style="color:var(--steel)">→</span><span class="mono" style="font-size:22px;color:var(--crystal);white-space:nowrap">+47 %</span></div><div class="sub" style="margin-top:6px">de production de métal</div>
+</div>
+<div><div class="cap" style="margin-bottom:8px">Prix</div><span class="amt metal"><span class="i " style="--m:url(img/icones/metal-bar.svg)"></span>18k</span><span class="amt crystal"><span class="i " style="--m:url(img/icones/crystal-growth.svg)"></span>8,8k</span><span class="time"><span class="i sm" style="--m:url(img/icones/hourglass.svg)"></span> 1 h 52</span></div>
+<div class="ianos fr console" style="margin-top:4px">
+  <div class="tab">IANOS</div>
+  <div class="face" style="background-image:url(img/ianos.png)"></div>
+  <div><p>J'ai fini de lire les registres de la première base qu'on a prise au Cafard.</p><div class="do">Lance une recherche : le labo est libre</div></div>
+</div>
+<div style="margin-top:auto;display:flex;flex-direction:column;gap:10px">
+  <span class="btn" style="width:100%">Rechercher · 1 h 52</span>
+  <span class="sub" style="font-size:12.5px;text-align:center">Tous les rangs</span>
+</div>
+</aside>
+</div>
+<div class="legend">
+<b>La Recherche, dense.</b> Sur le téléphone, une grille de grosses cases puis un carrousel pour le détail ; sur un écran
+d'ordinateur, les deux à la fois : la grille passe à deux colonnes de cases basses (icône, nom, jauge des rangs, prix en icônes,
+l'effet du rang visé à droite), la recherche « prête à partir » en tête, et la case touchée ouvre son détail dans la colonne de droite (la fonction, l'effet avant puis après, le prix, IANOS, le bouton, « Tous les rangs »). Les onglets CIVIL | MILITAIRE, une seule braise (ce qu'on peut lancer maintenant, et son bouton), la coupure « VERROUILLÉ » et ses conditions en mots : la grammaire du jeu, sans un écran de plus.
+</div>
+</body></html>
