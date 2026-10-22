@@ -213,9 +213,12 @@ table.t td.num, table.t th.num { text-align: right; font-family: "Plex"; }
 .tl.sel { border-color: var(--crystal); box-shadow: 0 0 0 1px rgba(127,211,230,.5), 0 0 24px rgba(127,211,230,.18); }
 .tl.sel::after { content: ""; position: absolute; inset: 3px; border: 1px solid rgba(127,211,230,.35); pointer-events: none; }
 /* verrouillé : la vignette éteinte sous des hachures fines, le cadenas, la condition au survol */
-.tl.lock .im { filter: grayscale(.6) brightness(.62) contrast(.92); }
+/* le verrou garde l'illustration : désaturée, assombrie d'un cran, sous des hachures fines — la grille reste belle */
+.tl.lock .im { filter: saturate(.35) brightness(.74) contrast(.95); }
+.tl.lock:hover .im { filter: saturate(.6) brightness(.85); }
 .tl.lock::before { content: ""; position: absolute; inset: 0; z-index: 1;
-  background: repeating-linear-gradient(135deg, rgba(141,149,166,.16) 0 1px, rgba(5,7,15,0) 1px 7px); }
+  background: repeating-linear-gradient(135deg, rgba(5,7,15,.30) 0 1px, rgba(5,7,15,0) 1px 6px),
+              linear-gradient(180deg, rgba(5,7,15,.05), rgba(5,7,15,.35)); }
 .tl.lock .pad { position: absolute; z-index: 2; right: 6px; top: 6px; color: var(--steel); }
 .tl.lock .lv { color: var(--dim); }
 .tl.lock .nm { z-index: 2; }
